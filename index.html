@@ -3,48 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Graph Explorer Prototype</title>
+    <title>Graph Explorer | Strategic Agentic AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page-shell">
+      <div class="page-backdrop" aria-hidden="true">
+        <div class="backdrop-orb backdrop-orb-1"></div>
+        <div class="backdrop-orb backdrop-orb-2"></div>
+        <div class="backdrop-grid"></div>
+      </div>
+
       <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Narrative Graph Prototype</p>
-          <h1>
-            <span class="hero-line">Navigating Agentic AI in</span>
-            <span class="hero-line">Health Care and Life Science</span>
-          </h1>
-          <p class="hero-text">
-            Across the graph, the same transition keeps reappearing: operating
-            pressure opens the door, orchestration reshapes work, intelligence
-            becomes productized, ecosystems rewire around agents, and trust becomes
-            the limiting factor.
-          </p>
-          <p class="hero-text">
-            This experience turns those five themes into a guided inquiry. Instead
-            of dropping the user into a graph cloud, it asks them to confront the
-            logic of the market and take a position before seeing what follows.
-          </p>
+        <div class="topbar">
+          <div class="brand-row">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div>
+              <p class="brand-name">Graph Explorer</p>
+              <p class="brand-subtitle">HCLS strategic inquiry system</p>
+            </div>
+          </div>
+          <nav class="hero-nav" aria-label="Primary">
+            <a href="#themes-grid">Strategy</a>
+            <a href="#stage-card">Narrative</a>
+            <a href="#evidence-thread">Evidence</a>
+          </nav>
+          <div class="status-pill">395-node HCLS knowledge graph</div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Strategic Agentic AI Briefing</p>
+            <h1>
+              <span class="hero-line">Navigating Agentic AI in</span>
+              <span class="hero-line emphasis">Health Care and Life Sciences</span>
+            </h1>
+            <p class="hero-text hero-text-lead">
+              Move beyond the graph cloud. This prototype reframes the dataset as a
+              guided inquiry engine for leaders deciding how automation, orchestration,
+              clinical intelligence, ecosystem rewiring, and trust will reshape their
+              operating model.
+            </p>
+            <p class="hero-text">
+              The core pattern repeats across the evidence: pressure opens the door,
+              orchestration changes the work, intelligence becomes productized,
+              ecosystems reorganize around agents, and trust becomes the true
+              adoption bottleneck.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-action" href="#story-title">Explore the framework</a>
+              <a class="secondary-action" href="#evidence-thread">View methodology</a>
+            </div>
+          </div>
+
+          <aside class="hero-aside" aria-label="Concept visual">
+            <div class="orbital-frame">
+              <div class="orbital-ring orbital-ring-outer"></div>
+              <div class="orbital-ring orbital-ring-inner"></div>
+              <div class="orbital-core">
+                <span class="orbital-dot orbital-dot-a"></span>
+                <span class="orbital-dot orbital-dot-b"></span>
+                <span class="orbital-dot orbital-dot-c"></span>
+              </div>
+            </div>
+            <div class="aside-caption">
+              <p class="section-kicker">Operating logic</p>
+              <p class="section-summary">
+                Guided inquiry over raw graph navigation. Evidence remains visible,
+                but interpretation becomes the product.
+              </p>
+            </div>
+          </aside>
         </div>
       </header>
 
       <main class="layout">
         <section class="themes-panel">
           <div class="section-heading">
-            <p class="section-kicker">Theme Selector</p>
-            <h2>Five graph-driven doors into the story</h2>
+            <p class="section-kicker">Strategic Pillars</p>
+            <h2>Five doors into the transformation logic</h2>
+            <p class="section-summary">
+              Each pillar is designed to feel less like navigation and more like a
+              board-level hypothesis worth stress-testing.
+            </p>
           </div>
           <div class="themes-grid" id="themes-grid"></div>
           <div class="dataset-panel">
-            <p class="panel-label">Dataset pulse</p>
+            <p class="panel-label">Signal rail</p>
             <div class="pulse-grid" id="dataset-pulse"></div>
           </div>
         </section>
 
         <section class="story-panel">
           <div class="section-heading">
-            <p class="section-kicker">Guided Path</p>
+            <p class="section-kicker">Strategic Trajectory</p>
             <h2 id="story-title"></h2>
             <p id="story-subtitle" class="section-summary"></p>
           </div>
@@ -58,11 +116,11 @@
 
           <div class="evidence-panel">
             <div class="section-heading">
-              <p class="section-kicker">Evidence Thread</p>
-              <h2>Proof without the visual clutter</h2>
+              <p class="section-kicker">Empirical Proof</p>
+              <h2>Proof without the graph toy aesthetics</h2>
               <p class="section-summary">
-                These are the exact graph relationships and nodes supporting the
-                current stage and branch.
+                These are the exact relationships and visible nodes supporting the
+                current stage and interpretation.
               </p>
             </div>
             <div class="evidence-thread" id="evidence-thread"></div>
