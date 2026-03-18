@@ -184,7 +184,7 @@ h1 {
 
 .theme-meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 10px;
   font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
@@ -192,18 +192,6 @@ h1 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
-}
-
-.status-pill {
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: rgba(28, 107, 92, 0.1);
-  color: var(--accent-2);
-}
-
-.status-pill.preview {
-  background: rgba(210, 163, 58, 0.16);
-  color: #7e5a06;
 }
 
 .story-stage {

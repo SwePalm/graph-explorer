@@ -1,7 +1,7 @@
 (function () {
   const data = window.STORY_DATA;
   const state = {
-    themeId: data.narrative.activeThemeId,
+    themeId: data.activeThemeId,
     stageIndex: 0,
     choiceId: null,
   };
@@ -21,6 +21,11 @@
     leads_to: "Leads To",
     contradicts: "Contradicts",
     creates_tension_with: "Creates Tension",
+    enables: "Enables",
+    requires: "Requires",
+    measures: "Measures",
+    part_of: "Part Of",
+    is_subject_to: "Is Subject To",
   };
 
   function nodeById(id) {
@@ -31,12 +36,16 @@
     return data.themes.find((theme) => theme.id === state.themeId);
   }
 
+  function currentNarrative() {
+    return data.narratives[state.themeId];
+  }
+
   function currentStage() {
-    return data.narrative.stages[state.stageIndex];
+    return currentNarrative().stages[state.stageIndex];
   }
 
   function currentChoice() {
-    return data.narrative.choices.find((choice) => choice.id === state.choiceId) || null;
+    return currentNarrative().choices.find((choice) => choice.id === state.choiceId) || null;
   }
 
   function renderPulse() {
@@ -84,9 +93,6 @@
           <article class="theme-card ${isActive ? "active" : ""}" data-theme-id="${theme.id}">
             <div class="theme-meta">
               <span>${theme.focusArea}</span>
-              <span class="status-pill ${theme.status === "preview" ? "preview" : ""}">
-                ${theme.status === "playable" ? "Playable Now" : "Preview"}
-              </span>
             </div>
             <h3>${theme.title}</h3>
             <p class="theme-hook">${theme.hook}</p>
@@ -106,7 +112,7 @@
   }
 
   function renderStageRail() {
-    railEl.innerHTML = data.narrative.stages
+    railEl.innerHTML = currentNarrative().stages
       .map(
         (stage, index) => `
           <button class="stage-chip ${index === state.stageIndex ? "active" : ""}" data-stage-index="${index}">
@@ -119,7 +125,7 @@
     railEl.querySelectorAll("[data-stage-index]").forEach((chip) => {
       chip.addEventListener("click", () => {
         state.stageIndex = Number(chip.dataset.stageIndex);
-        if (state.stageIndex < data.narrative.stages.length - 1) {
+        if (state.stageIndex < currentNarrative().stages.length - 1) {
           state.choiceId = null;
         }
         render();
@@ -159,21 +165,7 @@
     const theme = currentTheme();
     titleEl.textContent = theme.title;
     subtitleEl.textContent = theme.hook;
-
-    if (theme.id !== "collapse") {
-      decisionPanelEl.innerHTML = `
-        <div class="decision-result">
-          <h3>Prototype note</h3>
-          <p class="decision-summary">
-            This theme is visible as an entry point, but the interactive path is only
-            implemented for the administrative-collapse branch in this first slice.
-          </p>
-        </div>
-      `;
-      return;
-    }
-
-    if (state.stageIndex < data.narrative.stages.length - 1) {
+    if (state.stageIndex < currentNarrative().stages.length - 1) {
       decisionPanelEl.innerHTML = `
         <div class="decision-result">
           <h3>How the user is being guided</h3>
@@ -183,7 +175,7 @@
             choose how they interpret the contradiction.
           </p>
           <button class="decision-card active" id="advance-stage">
-            Continue to ${data.narrative.stages[state.stageIndex + 1].label}
+            Continue to ${currentNarrative().stages[state.stageIndex + 1].label}
           </button>
         </div>
       `;
@@ -196,7 +188,7 @@
 
     decisionPanelEl.innerHTML = `
       <div class="decision-grid">
-        ${data.narrative.choices
+        ${currentNarrative().choices
           .map(
             (choice) => `
               <article class="decision-card ${state.choiceId === choice.id ? "active" : ""}" data-choice-id="${choice.id}">
