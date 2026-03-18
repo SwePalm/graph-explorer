@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph Explorer Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Narrative Graph Prototype</p>
+          <h1>
+            <span class="hero-line">Navigating Agentic AI in</span>
+            <span class="hero-line">Health Care and Life Science</span>
+          </h1>
+          <p class="hero-text">
+            Across the graph, the same transition keeps reappearing: operating
+            pressure opens the door, orchestration reshapes work, intelligence
+            becomes productized, ecosystems rewire around agents, and trust becomes
+            the limiting factor.
+          </p>
+          <p class="hero-text">
+            This experience turns those five themes into a guided inquiry. Instead
+            of dropping the user into a graph cloud, it asks them to confront the
+            logic of the market and take a position before seeing what follows.
+          </p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="themes-panel">
+          <div class="section-heading">
+            <p class="section-kicker">Theme Selector</p>
+            <h2>Five graph-driven doors into the story</h2>
+          </div>
+          <div class="themes-grid" id="themes-grid"></div>
+          <div class="dataset-panel">
+            <p class="panel-label">Dataset pulse</p>
+            <div class="pulse-grid" id="dataset-pulse"></div>
+          </div>
+        </section>
+
+        <section class="story-panel">
+          <div class="section-heading">
+            <p class="section-kicker">Guided Path</p>
+            <h2 id="story-title"></h2>
+            <p id="story-subtitle" class="section-summary"></p>
+          </div>
+
+          <div class="story-stage">
+            <div class="stage-rail" id="stage-rail"></div>
+            <article class="stage-card" id="stage-card"></article>
+          </div>
+
+          <div class="decision-panel" id="decision-panel"></div>
+
+          <div class="evidence-panel">
+            <div class="section-heading">
+              <p class="section-kicker">Evidence Thread</p>
+              <h2>Proof without the visual clutter</h2>
+              <p class="section-summary">
+                These are the exact graph relationships and nodes supporting the
+                current stage and branch.
+              </p>
+            </div>
+            <div class="evidence-thread" id="evidence-thread"></div>
+            <div class="evidence-nodes" id="evidence-nodes"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="story-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
